@@ -4,8 +4,8 @@ from csv import reader
 world = {'X':'Empty',
          'G': 'Ground',
          'W':'Water',
-         'a': 'POI a',
-         'b': 'POI b'}
+         'a': 'Location A',
+         'b': 'Location B'}
 
 layout_csv = 'framework - layout (1).csv'
 ground_csv = 'framework - ground (2).csv'
@@ -43,7 +43,7 @@ while True:
   
 # update_stage
   get_world = world.get(stage.iat[x, y])
-  print(f"player {get_avatar} at {position}: {get_world} \n")
+  print(f"player {get_avatar} at {position} {get_world} : {stage.iat[x,y]} \n")
   stage.iat[x, y] = get_avatar
 
   print(stage)
@@ -56,10 +56,11 @@ while True:
   file = open(layer, encoding='utf-8')
   ground = pd.read_csv(file)
   if ground.iat[a] == True:
+    print(f'\nWalking to {a}')
     position = a
   else:
     obstacle = world.get(stage.iat[a])
-    print(f'Can not walk on {a} because it is {obstacle} : {stage.iat[a]}')
+    print(f'\nCan not walk on {a} because it is {obstacle} : {stage.iat[a]}')
     turn = turn -1
 
 #list of lists from dataframe
