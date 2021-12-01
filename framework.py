@@ -11,7 +11,6 @@ layout_csv = 'framework - layout (1).csv'
 ground_csv = 'framework - ground (2).csv'
 
 layers = (layout_csv, ground_csv)
-
 avatars = ['P','█','▒','☉','░','🧙']
 av_num = list(range(len(avatars)))
 
