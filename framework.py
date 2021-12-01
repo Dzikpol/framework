@@ -7,11 +7,21 @@ ground_csv = 'framework - ground (2).csv'
 layers = (layout_csv, ground_csv)
 
 avatars = ['P','█','▒','☉','░','🧙']
-avatar = avatars[1]
+av_num = list(range(len(avatars)))
+
+av_list = list(zip(av_num,avatars))
+print(av_list)
+a = input('choose avatar (0-5)')
+a = int(a)
+
+avatar = avatars[a]
 
 position = (5,5)
+turn = 0
 
 while True:
+  turn += turn
+  print(f'turn: {turn}')
   player = {'position' : position, 'avatar' : avatar}
 
   get_position = player.get('position')
@@ -29,11 +39,12 @@ while True:
   stage.iat[x, y] = get_avatar
 
 # get stage at location
-  print(f"player at {position}: {stage.iloc[x, y]}")
+  print(f'player at {position}: {stage.iloc[x, y]}')
   print(stage)
 
-  a = input('enter position: x, y ')
-  a = tuple(int(x) for x in a.split(","))
-  position = a
+  p = input('enter position: x, y ')
+  p = tuple(int(x) for x in p.split(','))
+  position = p
 
 lol = stage.values.tolist()
+lol
