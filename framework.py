@@ -1,10 +1,6 @@
 import pandas as pd
 from csv import reader
 
-def goto(line) :
-  global lineNumber
-  line = lineNumber
-
 layout_csv = 'framework - layout (1).csv'
 ground_csv = 'framework - ground (2).csv'
 
