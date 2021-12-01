@@ -1,6 +1,12 @@
 import pandas as pd
 from csv import reader
 
+world = {'X':'Empty',
+         'G': 'Ground',
+         'W':'Water',
+         'a': 'POI a',
+         'b': 'POI b'}
+
 layout_csv = 'framework - layout (1).csv'
 ground_csv = 'framework - ground (2).csv'
 
@@ -16,14 +22,14 @@ a = int(a)
 
 avatar = avatars[a]
 
-position = (5,5)
+position = (9,0)
 turn = 0
 
 while True:
   turn = turn +1
   print(f'turn: {turn}')
-  player = {'position' : position, 'avatar' : avatar}
 
+  player = {'position' : position, 'avatar' : avatar}
   get_position = player.get('position')
   x = get_position[0]
   y = get_position[1]
@@ -38,13 +44,22 @@ while True:
 # update_stage
   stage.iat[x, y] = get_avatar
 
-# get stage at location
-  print(f'player at {position}: {stage.iloc[x, y]}')
   print(stage)
+  print(f"{avatar} player at {position}:\n")
+  a = input('enter position: ')
+  a = tuple(int(x) for x in a.split(","))
 
-  p = input('enter position: x, y ')
-  p = tuple(int(x) for x in p.split(','))
-  position = p
+# get stage from the 'layout' layer
+  layer = layers[1]
+  file = open(layer, encoding='utf-8')
+  ground = pd.read_csv(file)
+  if ground.iat[a] == True:
+    position = a
+  else:
+    obstacle = world.get(stage.iat[a])
+    print(f'Can not walk on {a} because it is {obstacle} : {stage.iat[a]}')
+    turn = turn -1
 
-lol = stage.values.tolist()
-lol
+#list of lists from dataframe
+#lol = stage.values.tolist()
+#lol
