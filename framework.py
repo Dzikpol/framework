@@ -24,7 +24,6 @@ while True:
   layer = layers[0]
   file = open(layer, encoding='utf-8')
   stage = pd.read_csv(file)
-  pd.set_option('display.max_columns', 10)
   
 # update_stage
   stage.iat[x, y] = get_avatar
