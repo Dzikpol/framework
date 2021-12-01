@@ -1,9 +1,9 @@
 import pandas as pd
 from csv import reader
 
-world = {'X':'Empty',
+world = {'X': 'Empty',
          'G': 'Ground',
-         'W':'Water',
+         'W': 'Water',
          'a': 'Location A',
          'b': 'Location B'}
 
