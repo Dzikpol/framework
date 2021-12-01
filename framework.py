@@ -20,7 +20,7 @@ position = (5,5)
 turn = 0
 
 while True:
-  turn += turn
+  turn = turn +1
   print(f'turn: {turn}')
   player = {'position' : position, 'avatar' : avatar}
 
