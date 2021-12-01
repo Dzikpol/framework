@@ -27,7 +27,7 @@ turn = 0
 
 while True:
   turn = turn +1
-  print(f'turn: {turn}')
+  print(f'\nturn: {turn}')
 
   player = {'position' : position, 'avatar' : avatar}
   get_position = player.get('position')
@@ -42,10 +42,12 @@ while True:
   stage = pd.read_csv(file)
   
 # update_stage
+  get_world = world.get(stage.iat[x, y])
+  print(f"player {get_avatar} at {position}: {get_world} \n")
   stage.iat[x, y] = get_avatar
 
   print(stage)
-  print(f"{avatar} player at {position}:\n")
+  
   a = input('enter position: ')
   a = tuple(int(x) for x in a.split(","))
 
@@ -62,4 +64,3 @@ while True:
 
 #list of lists from dataframe
 #lol = stage.values.tolist()
-#lol
