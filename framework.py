@@ -12,11 +12,12 @@ ground_csv = 'framework - ground (2).csv'
 
 layers = (layout_csv, ground_csv)
 avatars = ['P','█','▒','☉','░','🧙']
-av_num = list(range(len(avatars)))
 
+av_num = list(range(len(avatars)))
 av_list = list(zip(av_num,avatars))
 print(av_list)
-a = input('choose avatar (0-5)')
+
+a = input('choose avatar')
 a = int(a)
 
 avatar = avatars[a]
