@@ -51,7 +51,7 @@ while True:
   a = input('enter position: ')
   a = tuple(int(x) for x in a.split(","))
 
-# get stage from the 'layout' layer
+# get stage from the 'ground' layer
   layer = layers[1]
   file = open(layer, encoding='utf-8')
   ground = pd.read_csv(file)
